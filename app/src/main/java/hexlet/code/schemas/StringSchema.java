@@ -1,14 +1,12 @@
 package hexlet.code.schemas;
 
-public class StringSchema {
-    private Boolean required;
-
+public class StringSchema extends BaseSchema {
     private String sampleString;
 
     private int minLength;
 
     public StringSchema() {
-        this.required = false;
+        super();
         this.sampleString = "";
         this.minLength = 0;
     }
