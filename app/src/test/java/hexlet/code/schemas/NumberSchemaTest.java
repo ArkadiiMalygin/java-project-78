@@ -15,6 +15,14 @@ public class NumberSchemaTest {
     }
 
     @Test
+    public void testIsValidNullFalse() {
+        Integer testNumber = null;
+        var v = new Validator();
+        var schema = v.number().required();
+        assertEquals(schema.isValid(testNumber), false);
+    }
+
+    @Test
     public void testIsValid() {
         Integer testNumber = 65;
         var v = new Validator();

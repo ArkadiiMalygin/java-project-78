@@ -15,7 +15,7 @@ public class StringSchema extends BaseSchema {
         if (testString == null) {
             testString = "";
         }
-        if (testString.isEmpty() && this.required) {
+        if (testString.isEmpty() && this.require) {
             return false;
         }
 
@@ -25,10 +25,13 @@ public class StringSchema extends BaseSchema {
         return testString.contains(sampleString);
     }
 
+    @Override
     public StringSchema required() {
-        this.required = true;
+        super.required();
         return this;
     }
+
+
 
     public StringSchema contains(String newSampleString) {
         this.sampleString = newSampleString;

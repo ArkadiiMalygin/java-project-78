@@ -17,15 +17,16 @@ public class NumberSchema extends BaseSchema {
         if (testNumber == null) {
             testNumber = 0;
         }
-        if (testNumber == 0 && this.required) {
+        if (testNumber == 0 && this.require) {
             return false;
         }
 
         return testNumber >= this.min && testNumber <= this.max;
     }
 
+    @Override
     public NumberSchema required() {
-        this.required = true;
+        super.required();
         return this;
     }
 
