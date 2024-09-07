@@ -50,7 +50,7 @@ public class NumberSchemaTest {
     public void testIsValidRangeTrue() {
         Integer testNumber = 34;
         var v = new Validator();
-        var schema = v.number().range(33,43);
+        var schema = v.number().range(33, 43);
         assertEquals(schema.isValid(testNumber), true);
     }
 }

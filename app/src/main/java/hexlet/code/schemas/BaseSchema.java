@@ -7,10 +7,9 @@ public abstract class BaseSchema<T> {
         this.require = false;
     }
 
-    public BaseSchema required() {
+    public BaseSchema<T> required() {
         this.require = true;
         return this;
     }
-
     public abstract boolean isValid(T testSubject);
 }

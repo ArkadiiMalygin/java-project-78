@@ -1,8 +1,6 @@
 package hexlet.code.schemas;
 
-import java.util.ArrayList;
-
-public class NumberSchema extends BaseSchema {
+public class NumberSchema extends BaseSchema<Integer> {
 
     private int min;
     private int max;
@@ -13,22 +11,18 @@ public class NumberSchema extends BaseSchema {
         this.max = Integer.MAX_VALUE;
     }
 
-    public Boolean isValid(Integer testNumber) {
-        if (testNumber == null) {
-            testNumber = 0;
+    @Override
+    public boolean isValid(Integer testSubject) {
+        if (testSubject == null) {
+            testSubject = 0;
         }
-        if (testNumber == 0 && this.require) {
+        if (testSubject == 0 && this.require) {
             return false;
         }
 
-        return testNumber >= this.min && testNumber <= this.max;
+        return testSubject >= this.min && testSubject <= this.max;
     }
 
-    @Override
-    public NumberSchema required() {
-        super.required();
-        return this;
-    }
 
     public NumberSchema positive() {
         if (this.min < 1) {
@@ -40,6 +34,12 @@ public class NumberSchema extends BaseSchema {
     public NumberSchema range(int rangeStart, int rangeEnd) {
         this.min = rangeStart;
         this.max = rangeEnd;
+        return this;
+    }
+
+    @Override
+    public NumberSchema required() {
+        super.required();
         return this;
     }
 
