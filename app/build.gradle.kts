@@ -23,3 +23,12 @@ application {
 tasks.test {
     useJUnitPlatform()
 }
+
+application {
+    mainClass = "hexlet.code.App"
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports { xml.required.set(true) }
+}
