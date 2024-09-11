@@ -1,39 +1,32 @@
 package hexlet.code.schemas;
 
+import java.util.function.Predicate;
+
 public class NumberSchema extends BaseSchema<Integer> {
 
-    private int min;
-    private int max;
 
     public NumberSchema() {
         super();
-        this.min = Integer.MIN_VALUE;
-        this.max = Integer.MAX_VALUE;
-    }
-
-    @Override
-    public boolean isValid(Integer testSubject) {
-        if (testSubject == null) {
-            testSubject = 0;
-        }
-        if (testSubject == 0 && this.require) {
-            return false;
-        }
-
-        return testSubject >= this.min && testSubject <= this.max;
     }
 
 
     public NumberSchema positive() {
-        if (this.min < 1) {
-            this.min = 1;
-        }
+        addPredicate("isPositive", new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer i) {
+                return i > 0;
+            }
+        });
         return this;
     }
 
     public NumberSchema range(int rangeStart, int rangeEnd) {
-        this.min = rangeStart;
-        this.max = rangeEnd;
+        addPredicate("isInRange", new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer i) {
+                return i >= rangeStart && i <= rangeEnd;
+            }
+        });
         return this;
     }
 

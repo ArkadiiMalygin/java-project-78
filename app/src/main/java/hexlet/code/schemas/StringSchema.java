@@ -1,28 +1,12 @@
 package hexlet.code.schemas;
 
-public class StringSchema extends BaseSchema<String> {
-    private String sampleString;
+import java.util.function.Predicate;
 
-    private int minLength;
+public class StringSchema extends BaseSchema<String> {
+
 
     public StringSchema() {
         super();
-        this.sampleString = "";
-        this.minLength = 0;
-    }
-    @Override
-    public boolean isValid(String testString) {
-        if (testString == null) {
-            testString = "";
-        }
-        if (testString.isEmpty() && this.require) {
-            return false;
-        }
-
-        if (testString.length() < minLength) {
-            return false;
-        }
-        return testString.contains(sampleString);
     }
 
     @Override
@@ -32,12 +16,23 @@ public class StringSchema extends BaseSchema<String> {
     }
 
     public StringSchema contains(String newSampleString) {
-        this.sampleString = newSampleString;
+        addPredicate("isContains", new Predicate<String>() {
+            @Override
+            public boolean test(String i) {
+                return i.contains(newSampleString);
+            }
+        });
         return this;
     }
 
     public StringSchema minLength(int newMinLength) {
-        this.minLength = newMinLength;
+        addPredicate("isDesiredLength", new Predicate<String>() {
+            @Override
+            public boolean test(String i) {
+
+                return i.length() > newMinLength;
+            }
+        });
         return this;
     }
 }
