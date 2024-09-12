@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema<T> {
+public class BaseSchema<T> {
 
     protected Map<String, Predicate<T>> listOfChecks;
 
