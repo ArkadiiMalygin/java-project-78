@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema<T> {
+public class BaseSchema<T> {
 
     protected Map<String, Predicate<T>> listOfChecks;
 
@@ -13,7 +13,7 @@ public abstract class BaseSchema<T> {
         this.listOfChecks = new LinkedHashMap<>();
     }
 
-    public BaseSchema<T> required() {
+    protected BaseSchema<T> required() {
         addPredicate("isRequired", new Predicate<T>() {
             @Override
             public boolean test(T i) {
