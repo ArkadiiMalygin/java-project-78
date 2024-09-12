@@ -13,7 +13,11 @@ public class BaseSchema<T> {
         this.listOfChecks = new LinkedHashMap<>();
     }
 
-    protected BaseSchema<T> required() {
+    /**
+     *
+     * do override in each child
+     */
+    public BaseSchema<T> required() {
         addPredicate("isRequired", new Predicate<T>() {
             @Override
             public boolean test(T i) {
