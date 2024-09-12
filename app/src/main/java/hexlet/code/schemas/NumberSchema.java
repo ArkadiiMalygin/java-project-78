@@ -15,7 +15,7 @@ public class NumberSchema extends BaseSchema<Integer> {
             @Override
             public boolean test(Integer i) {
                 if (i == null) {
-                    return false;
+                    return true;
                 }
                 return i > 0;
             }
@@ -28,7 +28,7 @@ public class NumberSchema extends BaseSchema<Integer> {
             @Override
             public boolean test(Integer i) {
                 if (i == null) {
-                    return false;
+                    return true;
                 }
                 return i >= rangeStart && i <= rangeEnd;
             }
