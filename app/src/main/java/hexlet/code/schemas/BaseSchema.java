@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class BaseSchema<T> {
+public abstract class BaseSchema<T> {
 
     protected Map<String, Predicate<T>> listOfChecks;
 
@@ -26,11 +26,11 @@ public class BaseSchema<T> {
         return this;
     }
 
-    public void addPredicate(String key, Predicate<T> predicate) {
+    public final void addPredicate(String key, Predicate<T> predicate) {
         this.listOfChecks.put(key, predicate);
     }
 
-    public boolean isValid(T testSubject) {
+    public final boolean isValid(T testSubject) {
         for (Predicate<T> predicate : listOfChecks.values()) {
             if (!predicate.test(testSubject)) {
                 return false;
