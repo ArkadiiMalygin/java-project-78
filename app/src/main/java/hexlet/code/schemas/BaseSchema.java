@@ -14,8 +14,8 @@ public class BaseSchema<T> {
     }
 
     /**
-     *
-     * do override in each child
+     * override to return what u need.
+     * @return itself
      */
     public BaseSchema<T> required() {
         addPredicate("isRequired", new Predicate<T>() {
