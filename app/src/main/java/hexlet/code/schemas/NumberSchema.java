@@ -14,7 +14,7 @@ public class NumberSchema extends BaseSchema<Integer> {
         addPredicate("isPositive", new Predicate<Integer>() {
             @Override
             public boolean test(Integer i) {
-                return i > 0;
+                return i == null || i > 0;
             }
         });
         return this;
@@ -24,7 +24,7 @@ public class NumberSchema extends BaseSchema<Integer> {
         addPredicate("isInRange", new Predicate<Integer>() {
             @Override
             public boolean test(Integer i) {
-                return i >= rangeStart && i <= rangeEnd;
+                return i == null || (i >= rangeStart && i <= rangeEnd);
             }
         });
         return this;
