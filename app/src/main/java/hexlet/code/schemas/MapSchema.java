@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public class MapSchema<T, V> extends BaseSchema<Map<T, V>> {
+public final class MapSchema<T, V> extends BaseSchema<Map<T, V>> {
 
     public MapSchema() {
         super();
