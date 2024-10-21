@@ -1,5 +1,5 @@
 plugins {
-    application
+    java
     jacoco
     checkstyle
 }
@@ -16,17 +16,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
-application {
-    mainClass = "hexlet.code.App"
-}
 
 tasks.test {
     useJUnitPlatform()
 }
 
-application {
-    mainClass = "hexlet.code.App"
-}
+
 
 tasks.jacocoTestReport {
     dependsOn(tasks.test)

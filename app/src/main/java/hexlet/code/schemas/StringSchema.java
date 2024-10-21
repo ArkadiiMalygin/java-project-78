@@ -5,10 +5,6 @@ import java.util.function.Predicate;
 public final class StringSchema extends BaseSchema<String> {
 
 
-    public StringSchema() {
-        super();
-    }
-
     @Override
     public StringSchema required() {
         super.required();

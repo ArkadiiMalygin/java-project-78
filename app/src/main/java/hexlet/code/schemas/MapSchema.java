@@ -22,6 +22,13 @@ public final class MapSchema<T, V> extends BaseSchema<Map<T, V>> {
 
     public MapSchema shape(Map<String, BaseSchema<T>> schemaOfMap) {
         addPredicate("isRequiredShape", new Predicate<Map<T, V>>() {
+//            https://github.com/ArkadiiMalygin/java-project-78/blob/main/app/src/main/java/hexlet/code/schemas/MapSchema.java#L24-L55 на самом деле тут можно немного упростить:
+//            value -> {
+//                return schemas.entrySet().stream().allMatch(e -> {
+//                    Object v = ((Map) value).get(e.getKey());
+//                    return e.getValue().isValid(v);
+//                });
+//            }
             @Override
             public boolean test(Map<T, V> tvMap) {
                 for (Map.Entry<T, V> entry : tvMap.entrySet()) {
