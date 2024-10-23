@@ -25,9 +25,9 @@ public final class MapSchema<T, V> extends BaseSchema<Map<T, V>> {
             @Override
             public boolean test(Map<T, V> tvMap) {
                     return schemaOfMap.entrySet().stream().allMatch(e -> {
-                    Object v = tvMap.get(e.getKey());
-                    return e.getValue().isValid((T) v);
-                });
+                        Object v = tvMap.get(e.getKey());
+                        return e.getValue().isValid((T) v);
+                    });
             }
         });
         return this;
