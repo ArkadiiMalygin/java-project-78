@@ -5,9 +5,6 @@ import java.util.function.Predicate;
 
 public final class MapSchema<T, V> extends BaseSchema<Map<T, V>> {
 
-    public MapSchema() {
-        super();
-    }
 
     @Override
     public MapSchema required() {

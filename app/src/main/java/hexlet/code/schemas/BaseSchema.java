@@ -30,7 +30,7 @@ public class BaseSchema<T> {
         return this;
     }
 
-    public final void addPredicate(String key, Predicate<T> predicate) {
+    protected final void addPredicate(String key, Predicate<T> predicate) {
         this.listOfChecks.put(key, predicate);
     }
 
