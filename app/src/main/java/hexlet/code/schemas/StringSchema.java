@@ -5,6 +5,12 @@ import java.util.function.Predicate;
 public final class StringSchema extends BaseSchema<String> {
 
 
+    @Override
+    public StringSchema required() {
+        super.required();
+        return this;
+    }
+
     public StringSchema contains(String newSampleString) {
         addPredicate("isContains", new Predicate<String>() {
             @Override
