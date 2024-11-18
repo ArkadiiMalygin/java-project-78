@@ -6,12 +6,6 @@ import java.util.function.Predicate;
 public final class MapSchema<T, V> extends BaseSchema<Map<T, V>> {
 
 
-    @Override
-    public MapSchema required() {
-        super.required();
-        return this;
-    }
-
     public MapSchema<T, V> sizeof(int mapSize) {
         addPredicate("isRequiredSize", (i) -> i.size() == mapSize);
         return this;

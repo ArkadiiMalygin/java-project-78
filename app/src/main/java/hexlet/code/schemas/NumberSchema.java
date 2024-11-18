@@ -5,11 +5,6 @@ import java.util.function.Predicate;
 public final class NumberSchema extends BaseSchema<Integer> {
 
 
-    public NumberSchema() {
-        super();
-    }
-
-
     public NumberSchema positive() {
         addPredicate("isPositive", new Predicate<Integer>() {
             @Override
